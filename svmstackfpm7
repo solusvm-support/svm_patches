@@ -1,0 +1,11 @@
+/var/log/svmstackfpm7/*log {
+missingok
+daily
+rotate 7
+notifempty
+sharedscripts
+delaycompress
+postrotate
+ [ -f /usr/local/svmstack/fpm7/pid/php-fpm.pid ] && kill -USR1 `cat /usr/local/svmstack/fpm7/pid/php-fpm.pid`
+endscript
+}
